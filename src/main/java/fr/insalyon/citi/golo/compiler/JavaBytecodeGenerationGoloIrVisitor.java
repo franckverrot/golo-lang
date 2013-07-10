@@ -519,6 +519,11 @@ class JavaBytecodeGenerationGoloIrVisitor implements GoloIrVisitor {
   }
 
   @Override
+  public void acceptStringLiteral(StringLiteral stringLiteral) {
+    methodVisitor.visitLdcInsn(stringLiteral.getImage());
+  }
+
+  @Override
   public void acceptCollectionLiteral(CollectionLiteral collectionLiteral) {
     // TODO generate bytecode for collections
     switch (collectionLiteral.getType()) {

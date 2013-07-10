@@ -341,6 +341,14 @@ class ParseTreeToGoloIrVisitor implements GoloParserVisitor {
   }
 
   @Override
+  public Object visit(ASTStringLiteral node, Object data) {
+    Context context = (Context) data;
+    List<ExpressionStatement> expressions = new LinkedList<>();
+    context.objectStack.push(new StringLiteral(node.getImage(), expressions));
+    return data;
+  }
+
+  @Override
   public Object visit(ASTReference node, Object data) {
     Context context = (Context) data;
     ReferenceLookup referenceLookup = new ReferenceLookup(node.getName());

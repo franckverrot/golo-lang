@@ -911,4 +911,13 @@ public class CompileAndRunTest {
     assertThat((String) map.get("foo"), is("bar"));
     assertThat((String) map.get("plop"), is("da plop"));
   }
+
+  @Test
+  public void interpolated_strings() throws Throwable {
+    Class<?> moduleClass = compileAndLoadGoloModule(SRC, "interpolated-strings.golo");
+
+    Method hello42 = moduleClass.getMethod("hello42");
+    Object result = hello42.invoke(null);
+    assertThat((String) result, is("hello42"));
+  }
 }

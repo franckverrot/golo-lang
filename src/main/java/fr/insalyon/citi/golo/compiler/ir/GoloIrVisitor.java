@@ -53,4 +53,6 @@ public interface GoloIrVisitor {
   void acceptLoopBreakFlowStatement(LoopBreakFlowStatement loopBreakFlowStatement);
 
   void acceptCollectionLiteral(CollectionLiteral collectionLiteral);
+
+  void acceptStringLiteral(StringLiteral stringLiteral);
 }

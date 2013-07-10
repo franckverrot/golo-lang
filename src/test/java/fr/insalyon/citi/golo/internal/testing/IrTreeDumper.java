@@ -270,4 +270,13 @@ public class IrTreeDumper implements GoloIrVisitor {
     }
     decr();
   }
+
+  @Override
+  public void acceptStringLiteral(StringLiteral stringLiteral) {
+    incr();
+    space();
+    System.out.println("String literal: " + stringLiteral.toString());
+    decr();
+  }
+
 }

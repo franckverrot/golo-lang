@@ -295,4 +295,8 @@ class ClosureCaptureGoloIrVisitor implements GoloIrVisitor {
       statement.accept(this);
     }
   }
+
+  @Override
+  public void acceptStringLiteral(StringLiteral stringLiteral) {
+  }
 }
